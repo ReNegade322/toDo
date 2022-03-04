@@ -83,6 +83,10 @@ table {
     outline: none;
 }
 
+.submit--btn{
+    display: none;
+}
+
 .create_task{
     width: fit-content;
     margin: 0 auto;
@@ -102,18 +106,56 @@ table {
     justify-content: space-between;
     padding-right: 15px;
 
-    span{
-        font-size: 24px;
-    }
+span{
+    font-size: 24px;
+    margin: auto 0;
+}
 
-    .toggle{
-        text-align: center;
-        width: 40px;
-        margin: auto 0;
-        border: none;
+.toggle{
+    display: none;
+}
+
+.center{
+    margin-left: 10px;
+}
+
+.task__label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: color 0.5s ease-in-out;
     }
+}
+
+.checked ~ span {
+    color: #e6e6e6;
+    text-decoration: line-through;
+}
+
+
+    .task__label>span::before {
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        flex-shrink: 0;
+        flex-grow: 0;
+        border: 1px solid #e8e9e9;
+        border-radius: 100%;
+        margin-right: 0.5em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+      }
+
 
     .close{
+        border: none;
         display: none;
         width: 40px;
         height: 40px;
@@ -121,15 +163,46 @@ table {
         color: #cc9a9a;
         transition: color 0.2s ease-out;
         justify-self:flex-end;
+        background-color: transparent;
+        background-image: url(../assets/ci_close-big.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.5;
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
     }
 }
 
-
+.checkbox--filler{
+    position: absolute;
+    height: 65px;
+    width: 45px;
+    border: none;
+    background: none;
+    background-image: url(../assets/down--arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+    cursor: pointer;
+}
 
 
 //hovers
 .new--task:hover{
     .close{
         display: block;
+        cursor: pointer;
     }
 }
+
+.close:hover{
+    display: block;
+    opacity: 1;
+}
+
+.task__label>input:checked+span::before {
+    border-color: #18e072;
+    background-color: #18e072;
+  }
