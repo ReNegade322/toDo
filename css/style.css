@@ -24,8 +24,7 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  line-height: 1;
-  color: #4d4d4d; }
+  line-height: 1; }
 
 ol, ul {
   list-style: none; }
@@ -46,7 +45,7 @@ table {
   font-size: 100px;
   font-weight: 100;
   text-align: center;
-  color: rgba(175, 47, 47, 0.15);
+  color: rgba(47, 49, 175, 0.15);
   margin: 20px 0; }
 
 ::placeholder {
