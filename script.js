@@ -77,6 +77,7 @@ addTaskBtn.addEventListener('click', (event) => {
 });
 
 
+
 // adding check-all-button
 
 checkFiller.addEventListener('click', () => {
