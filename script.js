@@ -12,7 +12,6 @@ function NewTask(description){
     this.completed = false;
 }
 
-
 const createTemplate = (task, index) => {
     return `
         <div class="new--task ${task.completed ? 'checked': ''}">
