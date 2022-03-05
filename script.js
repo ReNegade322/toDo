@@ -44,6 +44,7 @@ const fillHtmlList = () => {
             checkTask.addEventListener('click', (event) => {
                 const target = event.target;
                 toggler(target);
+                console.log(target)
             });
         });
 
@@ -116,6 +117,7 @@ function toggler(checkTask){
     console.log({value:checkTask.value, tasks, checkTask});
     let task = tasks[+checkTask.value];
     task.completed = !task.completed;
+    console.log(tasks);
     fillHtmlList();
 } 
 
