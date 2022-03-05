@@ -108,7 +108,6 @@ checkFiller.addEventListener('click', () => {
             };
         };
     });
-    console.log(tasks)
 });
 
 
@@ -129,5 +128,3 @@ function deleter(close) {
     tasks.splice (close.value, 1);
     fillHtmlList();
 }
-
-
