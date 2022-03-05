@@ -77,9 +77,11 @@ table {
   margin: 0 auto;
   display: flex; }
 
+.todo--wrapper {
+  border-top: 1px solid #ededed; }
+
 .new--task {
   box-sizing: border-box;
-  border-top: 1px solid #ededed;
   border-bottom: 1px solid #ededed;
   width: 550px;
   height: 58px;

@@ -23,6 +23,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
     color: #4d4d4d;
@@ -43,11 +44,7 @@ table {
 	border-spacing: 0;
 }
 
-// .submit--btn{
-//     padding: 0 0;
-//     background: transparent;
-//     border: transparent;
-// }
+
 
 .title{
     font-size: 100px;
@@ -93,11 +90,13 @@ table {
     display: flex;
 }
 
+.todo--wrapper{
+    border-top: 1px solid #ededed;
+}
 
 //created tasks
 .new--task{
     box-sizing: border-box;
-    border-top: 1px solid #ededed;
     border-bottom: 1px solid #ededed;
     width: 550px;
     height: 58px;

@@ -18,11 +18,11 @@ const createTemplate = (task, index) => {
         <div class="new--task ${task.completed ? 'checked': ''}">
             <div class="center">
                 <label class="task__label">
-                    <input class="toggle" type="checkbox"> ${task.completed ? 'checked' : ''}     
+                    <input class="toggle ${task.completed ? 'checked' : ''}" type="checkbox" value="${index}" ${task.completed ? 'checked' : ''}>     
                     <span>${task.description}</span>
                 </label>
             </div>
-            <button class="close" value="${index}" ></button>
+            <button class="close" value="${index}"></button>
         </div>
     `
 } 
@@ -44,6 +44,7 @@ const fillHtmlList = () => {
             checkTask.addEventListener('click', (event) => {
                 const target = event.target;
                 toggler(target);
+                console.log(target)
             });
         });
 
@@ -80,6 +81,8 @@ addTaskBtn.addEventListener('click', (event) => {
 // adding check-all-button
 
 checkFiller.addEventListener('click', () => {
+
+
     let checkedCounter = 0;
     checkTask.forEach((taskElem) => {
         if (taskElem.className.includes("checked")){
@@ -87,32 +90,36 @@ checkFiller.addEventListener('click', () => {
         };
     });   
 
-    checkTask.forEach((taskElem) => {
+    checkTask.forEach((taskElem, index) => {
         if (checkedCounter == 0) {
             taskElem.classList.add("checked");
-            taskElem.checked = true;  
+            tasks[index].completed = true;  
+            taskElem.checked = true;
         } else if (checkedCounter == checkTask.length) {
             taskElem.classList.remove("checked");
+            tasks[index].completed = false;  
             taskElem.checked = false; 
         } else {
             if (taskElem.className.includes("checked")){
             } else {
                 taskElem.classList.add("checked");
-                taskElem.checked = true;     
+                tasks[index].completed = true; 
+                taskElem.checked = true;
             };
         };
     });
+    console.log(tasks)
 });
 
 
 // adding checked checkboxes
 
 function toggler(checkTask){
-    if (checkTask.className.includes("checked")){
-        checkTask.classList.remove("checked");
-    } else {
-        checkTask.classList.add("checked");
-    }
+    console.log({value:checkTask.value, tasks, checkTask});
+    let task = tasks[+checkTask.value];
+    task.completed = !task.completed;
+    console.log(tasks);
+    fillHtmlList();
 } 
 
 
@@ -124,25 +131,3 @@ function deleter(close) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-// checkFiller.addEventListener('click', () => {
-//     checkTask.forEach((taskElem) => {
-//         if (taskElem.className.includes("checked")){
-//             taskElem.classList.remove("checked");
-//             taskElem.checked = false; 
-//         } else {
-//             taskElem.classList.add("checked");
-//             taskElem.checked = true;            
-//         };
-//     });    
-// });
